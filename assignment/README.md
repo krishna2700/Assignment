@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+React Form and Table Application Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Overview
 
-## Available Scripts
+This document provides an explanation of the structure, components, and functionality of a React application that includes a dynamic form and a table. The application allows users to input data through a form, display the entered data in a table, and provides options to edit or delete the rows in the table.
 
-In the project directory, you can run:
+Project Structure
 
-### `npm start`
+The project is organized into multiple components, each serving a specific purpose. The primary components are:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. FormComponent.js: Manages the form for user input.
+2. TableComponent.js: Displays the entered data in a tabular format.
+3. EditModalComponent.js: Provides a modal for editing existing data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In addition, there are CSS modules for styling each component to create a more polished and professional appearance.
 
-### `npm test`
+Component Details
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+FormComponent.js
 
-### `npm run build`
+This component handles the user input form. It includes input fields for the user to enter their name, email, contact number, select weekdays, choose gender, and input their date of birth. The form also includes validation and a submit button.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+State
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `formData`: Manages the form data, including name, email, contact, weekday, gender, and date of birth.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Functions
 
-### `npm run eject`
+- `handleChange`: Updates the form data when input values change.
+- `handleCheckboxChange`: Updates the checkbox state for weekdays.
+- `handleSubmit`: Handles form submission, triggers the `onSubmit` prop function, and resets the form.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+TableComponent.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This component displays the entered data in a table format. It dynamically renders rows based on the data provided.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Props
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `data`: An array of objects containing the user-entered data.
+- `onEdit`: Callback function to handle the edit action.
+- `onDelete`: Callback function to handle the delete action.
 
-## Learn More
+EditModalComponent.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This component provides a modal for editing existing data. It pre-fills the form with the selected row values and updates the table on form submission.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Props
 
-### Code Splitting
+- `rowData`: An object containing the data of the row being edited.
+- `onSave`: Callback function to handle saving the edited data.
+- `onClose`: Callback function to handle closing the modal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+State
 
-### Analyzing the Bundle Size
+- `editedData`: Manages the form data for editing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Functions
 
-### Making a Progressive Web App
+- `handleChange`: Updates the form data when input values change.
+- `handleSave`: Saves the edited data, triggers the `onSave` prop function, and closes the modal.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Styling
 
-### Advanced Configuration
+The styling of each component is done using CSS modules. This helps in keeping the styles scoped to the specific components, ensuring a clean and maintainable codebase.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. FormComponent.module.css: Styles for the form component, including input fields and the submit button.
 
-### Deployment
+2. TableComponent.module.css: Styles for the table component, including table layout and action buttons.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. EditModalComponent.module.css: Styles for the edit modal component, including input fields and action buttons.
 
-### `npm run build` fails to minify
+4. App.module.css: Styles for the overall application, including font styles and margins.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Application Flow
+
+1. User enters data in the form and submits it.
+2. Form data is added to the table, and the form is reset.
+3. The table dynamically renders rows based on the entered data.
+4. Each row in the table has "Edit" and "Delete" buttons.
+5. Clicking the "Edit" button opens a modal with the selected row values.
+6. In the modal, users can edit the data and save the changes.
+7. Clicking the "Delete" button removes the selected row from the table.
+
+Conclusion
+
+This React application provides a simple yet dynamic and professional interface for users to input, display, and manage data. It follows best practices by using functional components, hooks, and CSS modules for styling, ensuring a modular and maintainable codebase.
+
+---
+
+This documentation provides a comprehensive overview of the React application, covering its structure, components, styling, and functionality. It serves as a reference for developers working on the project or those seeking to understand its implementation.
